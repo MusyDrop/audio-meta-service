@@ -1,4 +1,3 @@
-import { JoiAppConfig } from './types';
 import { JoiUtil } from '../utils/joi/JoiUtil';
 import { ServerConfig, serverConfigSchema } from './schemas/server-config';
 import { RedisConfig, redisConfigSchema } from './schemas/redis-config';
@@ -6,21 +5,22 @@ import {
   MicroservicesConfig,
   microservicesConfigSchema
 } from './schemas/microservices-config';
-import { AwsConfig, awsConfigSchema } from './schemas/aws-config';
+import { MinioConfig, minioConfigSchema } from './schemas/minio-config';
+import { JoiAppConfig } from '../utils/joi/joiTypes';
 
 // the keys from here in the custom config service
 export interface AppConfig {
   server: ServerConfig;
   redis: RedisConfig;
   microservices: MicroservicesConfig;
-  aws: AwsConfig;
+  minio: MinioConfig;
 }
 
 export const appSchema = (): JoiAppConfig<AppConfig> => ({
   server: serverConfigSchema(),
   redis: redisConfigSchema(),
   microservices: microservicesConfigSchema(),
-  aws: awsConfigSchema()
+  minio: minioConfigSchema()
 });
 
 export const configuration = (): AppConfig => {
