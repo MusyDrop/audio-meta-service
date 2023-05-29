@@ -5,7 +5,7 @@ import { ConfigModule } from '../config/config.module';
 import { LoggerModule } from '../logger/logger.module';
 import { BullModule } from '../bull/bull.module';
 import { AnalyzerModule } from '../analyzer/analyzer.module';
-import { MinioModule } from '../minio/minio.module';
+import { S3Module } from '../s3/s3.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { MinioModule } from '../minio/minio.module';
     LoggerModule.forRoot(),
     BullModule,
     AnalyzerModule,
-    MinioModule
+    S3Module
   ],
   controllers: [AppController],
   providers: [AppService]

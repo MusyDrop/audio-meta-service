@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { MinioService } from './minio.service';
+import { S3Service } from './s3.service';
 import { ConfigModule } from '../config/config.module';
 
 @Module({
   imports: [ConfigModule],
-  providers: [MinioService],
-  exports: [MinioService]
+  providers: [S3Service],
+  exports: [S3Service]
 })
-export class MinioModule {}
+export class S3Module {}

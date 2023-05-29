@@ -5,7 +5,7 @@ import { generateUniqueId } from '../utils/unique-id-generator';
 import { Readable } from 'node:stream';
 
 @Injectable()
-export class MinioService implements OnModuleInit {
+export class S3Service implements OnModuleInit {
   private readonly client: Client;
 
   constructor(private readonly config: ExtendedConfigService) {
@@ -31,7 +31,6 @@ export class MinioService implements OnModuleInit {
     objectName: string = generateUniqueId()
   ): Promise<string> {
     await this.client.putObject(bucketName, objectName, object);
-
     return objectName;
   }
 

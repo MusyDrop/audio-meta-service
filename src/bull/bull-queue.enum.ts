@@ -1,3 +1,3 @@
 export enum BullQueue {
-  AUDIO_RMS_DETECTION = 'audio-rms-detection'
+  AUDIO_METADATA_DETECTION = 'audio-metadata-detection'
 }

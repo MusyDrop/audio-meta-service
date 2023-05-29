@@ -1,5 +1,5 @@
 import { Params } from 'nestjs-pino';
-import chalk, { ChalkFunction } from 'chalk/source';
+import chalk, { ChalkFunction } from 'chalk';
 import { startTime } from 'pino-http';
 import pretty from 'pino-pretty';
 import { IncomingMessage } from 'http';
@@ -50,12 +50,14 @@ export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
     customSuccessMessage: (req, res): string => {
       const timeTaken = Date.now() - res[startTime]; // startTime assigned in execution-time middleware
 
-      return `Request completed in ${chalk.greenBright(`+${timeTaken}ms`)}`;
+      return `Request ${chalk.underline('completed')} in ${chalk.greenBright(
+        `+${timeTaken}ms`
+      )}`;
     },
     customErrorMessage: (req, res): string => {
       const timeTaken = new Date().getTime() - res[startTime];
 
-      return `Request failed in ${chalk.greenBright(`+${timeTaken}ms`)}`;
+      return `Request ${chalk.underline('failed')} in ${chalk.greenBright(`+${timeTaken}ms`)}`;
     },
     genReqId: (): string => `${process.pid}-${generateUniqueId()}`
   }

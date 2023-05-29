@@ -6,7 +6,7 @@ import { GetHealthDto } from './get-health.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/health')
   getHealth(): GetHealthDto {
     return this.appService.getHealth();
   }
