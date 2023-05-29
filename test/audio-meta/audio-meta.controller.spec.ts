@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AudioMetaController } from '../../src/audio-meta/audio-meta.controller';
-import { AudioMetaService } from '../../src/audio-meta/audio-meta.service';
+import { AnalyzerController } from '../../src/analyzer/analyzer.controller';
+import { AnalyzerService } from '../../src/analyzer/analyzer.service';
 
-describe('AudioMetaController', () => {
-  let controller: AudioMetaController;
+describe('AnalyzerController', () => {
+  let controller: AnalyzerController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [AudioMetaController],
-      providers: [AudioMetaService]
+      controllers: [AnalyzerController],
+      providers: [AnalyzerService]
     }).compile();
 
-    controller = module.get<AudioMetaController>(AudioMetaController);
+    controller = module.get<AnalyzerController>(AnalyzerController);
   });
 
   it('should be defined', () => {

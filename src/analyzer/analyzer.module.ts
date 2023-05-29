@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AnalyzerService } from './analyzer.service';
-import { AudioMetaController } from './analyzer.controller';
+import { AnalyzerController } from './analyzer.controller';
 
 @Module({
-  controllers: [AudioMetaController],
+  controllers: [AnalyzerController],
   providers: [AnalyzerService]
 })
 export class AnalyzerModule {}

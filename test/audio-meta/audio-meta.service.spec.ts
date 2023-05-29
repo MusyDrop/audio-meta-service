@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AudioMetaService } from '../../src/audio-meta/audio-meta.service';
+import { AnalyzerService } from '../../src/analyzer/analyzer.service';
 
-describe('AudioMetaService', () => {
-  let service: AudioMetaService;
+describe('AnalyzerService', () => {
+  let service: AnalyzerService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AudioMetaService]
+      providers: [AnalyzerService]
     }).compile();
 
-    service = module.get<AudioMetaService>(AudioMetaService);
+    service = module.get<AnalyzerService>(AnalyzerService);
   });
 
   it('should be defined', () => {
