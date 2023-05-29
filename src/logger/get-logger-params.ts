@@ -15,7 +15,7 @@ const LOG_LEVEL_COLOR_MAP: Record<LogLevel, ChalkFunction> = {
   INFO: chalk.green,
   WARN: chalk.yellow,
   ERROR: chalk.red,
-  FATAL: chalk.red,
+  FATAL: chalk.red
 };
 
 export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
@@ -32,7 +32,7 @@ export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
         const path = req ? `[${req?.method}: ${req?.url}] ` : '';
         const formattedTime = `[${dateFormat(
           new Date(log.time as number),
-          'yyyy-mm-dd HH:MM:ss',
+          'yyyy-mm-dd HH:MM:ss'
         )}]`;
         const level = levels.labels[
           log.level as number
@@ -45,7 +45,7 @@ export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
 
         return `${metadata}${context}${path}${coloredMessage}`;
       },
-      ignore: 'pid,hostname,req,res,responseTime,level,time,context,name',
+      ignore: 'pid,hostname,req,res,responseTime,level,time,context,name'
     }),
     customSuccessMessage: (req, res): string => {
       const timeTaken = Date.now() - res[startTime]; // startTime assigned in execution-time middleware
@@ -57,6 +57,6 @@ export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
 
       return `Request failed in ${chalk.greenBright(`+${timeTaken}ms`)}`;
     },
-    genReqId: (): string => `${process.pid}-${generateUniqueId()}`,
-  },
+    genReqId: (): string => `${process.pid}-${generateUniqueId()}`
+  }
 });

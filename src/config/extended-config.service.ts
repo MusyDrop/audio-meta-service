@@ -20,9 +20,9 @@ export class ExtendedConfigService<K = AppConfig> extends NestConfig<K> {
     return Object.keys(appSchema()).reduce(
       (config, key) => ({
         ...config,
-        [key]: this.get<Path<K>>(key as Path<K>),
+        [key]: this.get<Path<K>>(key as Path<K>)
       }),
-      {} as K,
+      {} as K
     );
   }
 }

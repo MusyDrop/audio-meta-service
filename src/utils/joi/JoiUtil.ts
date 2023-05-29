@@ -14,7 +14,7 @@ export class JoiUtil {
     // validation schema without undefineds
     const schemaMap = this.extractByPropName<T, SchemaMap<T, true>>(
       config,
-      'schema',
+      'schema'
     );
 
     const values = this.extractByPropName<T, T>(config, 'value');
@@ -38,7 +38,7 @@ export class JoiUtil {
    */
   private static extractByPropName<T, R extends SchemaMap<T, true> | T>(
     config: JoiConfig<T>,
-    propName: keyof JoiConfigProps<T>,
+    propName: keyof JoiConfigProps<T>
   ): R {
     return Object.keys(config).reduce((schema, key) => {
       const typedKey = key as keyof JoiConfig<T>;
@@ -48,8 +48,8 @@ export class JoiUtil {
           ...schema,
           [key]: this.extractByPropName<T, R>(
             config[typedKey] as unknown as JoiConfig<T>,
-            propName,
-          ),
+            propName
+          )
         };
       }
 
@@ -64,7 +64,7 @@ export class JoiUtil {
 
       return {
         ...schema,
-        [key]: candidate,
+        [key]: candidate
       };
     }, {} as R);
   }

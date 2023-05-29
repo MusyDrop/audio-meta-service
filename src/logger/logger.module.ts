@@ -18,9 +18,9 @@ export class LoggerModule {
           inject: [ExtendedConfigService],
           useFactory: async (configService: ExtendedConfigService) => {
             return getLoggerParams(configService.get('server.loggerLevel'));
-          },
-        }),
-      ],
+          }
+        })
+      ]
     };
   }
 }

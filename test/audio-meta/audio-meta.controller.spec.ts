@@ -8,7 +8,7 @@ describe('AudioMetaController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [AudioMetaController],
-      providers: [AudioMetaService],
+      providers: [AudioMetaService]
     }).compile();
 
     controller = module.get<AudioMetaController>(AudioMetaController);

@@ -4,7 +4,7 @@ import { ServerConfig, serverConfigSchema } from './schemas/server-config';
 import { RedisConfig, redisConfigSchema } from './schemas/redis-config';
 import {
   MicroservicesConfig,
-  microservicesConfigSchema,
+  microservicesConfigSchema
 } from './schemas/microservices-config';
 import { AwsConfig, awsConfigSchema } from './schemas/aws-config';
 
@@ -20,7 +20,7 @@ export const appSchema = (): JoiAppConfig<AppConfig> => ({
   server: serverConfigSchema(),
   redis: redisConfigSchema(),
   microservices: microservicesConfigSchema(),
-  aws: awsConfigSchema(),
+  aws: awsConfigSchema()
 });
 
 export const configuration = (): AppConfig => {
@@ -29,8 +29,8 @@ export const configuration = (): AppConfig => {
   return Object.keys(schema).reduce(
     (config, key) => ({
       ...config,
-      [key]: JoiUtil.validate(schema[key as keyof AppConfig]),
+      [key]: JoiUtil.validate(schema[key as keyof AppConfig])
     }),
-    {} as AppConfig,
+    {} as AppConfig
   );
 };

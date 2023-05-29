@@ -6,7 +6,7 @@ describe('AudioMetaService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AudioMetaService],
+      providers: [AudioMetaService]
     }).compile();
 
     service = module.get<AudioMetaService>(AudioMetaService);

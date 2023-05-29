@@ -7,6 +7,6 @@ import { LoggerModule } from '../logger/logger.module';
 @Module({
   imports: [ConfigModule, LoggerModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}

@@ -10,14 +10,14 @@ export interface AwsConfig {
 export const awsConfigSchema = (): JoiConfig<AwsConfig> => ({
   region: {
     value: process.env.AWS_REGION as string,
-    schema: Joi.string().optional(),
+    schema: Joi.string().optional()
   },
   profile: {
     value: process.env.AWS_PROFILE as string | undefined,
-    schema: Joi.string().optional(),
+    schema: Joi.string().optional()
   },
   s3UploadsBucket: {
     value: process.env.AWS_S3_UPLOADS_BUCKET as string,
-    schema: Joi.string().optional(),
-  },
+    schema: Joi.string().optional()
+  }
 });

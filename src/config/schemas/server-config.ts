@@ -16,32 +16,32 @@ export interface ServerConfig {
 export const serverConfigSchema = (): JoiConfig<ServerConfig> => ({
   port: {
     value: parseInt(process.env.PORT as string, 10),
-    schema: Joi.number().required(),
+    schema: Joi.number().required()
   },
   loggerLevel: {
     value: process.env.LOGGER_GLOBAL_LOG_LEVEL as LogLevel,
-    schema: Joi.string().equal(...Object.keys(LogLevel)), // equal, valid no longer accept arrays, sad :(
+    schema: Joi.string().equal(...Object.keys(LogLevel)) // equal, valid no longer accept arrays, sad :(
   },
   nodeEnv: {
     value: process.env.NODE_ENV as NodeEnv,
     schema: Joi.string()
       .equal(...Object.keys(NodeEnv))
-      .required(), // equal, valid no longer accepts arrays, sad :(
+      .required() // equal, valid no longer accepts arrays, sad :(
   },
   adminEmail: {
     value: process.env.INIT_ADMIN_EMAIL as string,
-    schema: Joi.string().required(),
+    schema: Joi.string().required()
   },
   adminPassword: {
     value: process.env.INIT_ADMIN_PASSWORD as string,
-    schema: Joi.string().required(),
+    schema: Joi.string().required()
   },
   serverBaseUrl: {
     value: process.env.SERVER_BASE_URL as string,
-    schema: Joi.string().required(),
+    schema: Joi.string().required()
   },
   isProduction: {
     value: (process.env.NODE_ENV as NodeEnv) === NodeEnv.production,
-    schema: Joi.boolean().required(),
-  },
+    schema: Joi.boolean().required()
+  }
 });

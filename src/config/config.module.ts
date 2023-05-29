@@ -12,10 +12,10 @@ import { ExtendedConfigService } from './extended-config.service';
       // explicitly defined just to not forget about this feature
       validate: (config) => {
         return config;
-      },
-    }),
+      }
+    })
   ],
   providers: [ExtendedConfigService],
-  exports: [ExtendedConfigService, ConfigModule],
+  exports: [ExtendedConfigService, ConfigModule]
 })
 export class ConfigModule {}
