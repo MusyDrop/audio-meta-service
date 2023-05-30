@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import { BullQueue } from '../bull/bull-queue.enum';
 import { Queue } from 'bull';
@@ -24,9 +24,7 @@ export class AnalyzerService {
       return await job.finished();
     } catch (e) {
       this.logger.error(`Unable to analyze provided audio file, error: ${e}`);
-      throw new InternalServerErrorException(
-        'Unable to analyze provided audio file'
-      );
+      throw new BadRequestException('Unable to analyze provided audio file');
     }
   }
 }

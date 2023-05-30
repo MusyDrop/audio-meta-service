@@ -57,7 +57,9 @@ export const getLoggerParams = (level: LogLevel = LogLevel.TRACE): Params => ({
     customErrorMessage: (req, res): string => {
       const timeTaken = new Date().getTime() - res[startTime];
 
-      return `Request ${chalk.underline('failed')} in ${chalk.greenBright(`+${timeTaken}ms`)}`;
+      return `Request ${chalk.underline('failed')} in ${chalk.greenBright(
+        `+${timeTaken}ms`
+      )}`;
     },
     genReqId: (): string => `${process.pid}-${generateUniqueId()}`
   }
