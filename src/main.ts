@@ -10,7 +10,7 @@ async function bootstrap(): Promise<void> {
   const logger = app.get(Logger);
 
   app.useLogger(logger);
-
+  app.setGlobalPrefix('/api/meta');
   app.useGlobalPipes(
     new ValidationPipe({
       // transforms if @Type() decorator is specified in dtos
@@ -37,7 +37,7 @@ async function bootstrap(): Promise<void> {
   logger.log(
     `Server is instantiated and listening to incoming requests - ${baseUrl}`
   );
-  logger.log(`Service health check - ${baseUrl}/health`);
+  logger.log(`Service health check - ${baseUrl}/api/meta/health`);
 }
 
 bootstrap();

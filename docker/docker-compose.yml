@@ -3,13 +3,11 @@ version: "4.0"
 services:
   redis:
     image: redis:7.0.11
-    container_name: redis
     ports:
       - "6379:6379"
     networks:
       - audio-meta-service-network
   minio:
-    container_name: minio
     image: minio/minio
     restart: always
     volumes:
