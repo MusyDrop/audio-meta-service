@@ -11,6 +11,7 @@ export interface ServerConfig {
   adminPassword: string;
   serverBaseUrl: string;
   isProduction: boolean;
+  globalPrefix: string;
 }
 
 export const serverConfigSchema = (): JoiConfig<ServerConfig> => ({
@@ -43,5 +44,9 @@ export const serverConfigSchema = (): JoiConfig<ServerConfig> => ({
   isProduction: {
     value: (process.env.NODE_ENV as NodeEnv) === NodeEnv.production,
     schema: Joi.boolean().required()
+  },
+  globalPrefix: {
+    value: process.env.SERVER_GLOBAL_PREFIX as string,
+    schema: Joi.string().required()
   }
 });
