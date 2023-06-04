@@ -32,7 +32,7 @@ export class AudioMetadataQueueProcessor {
     const parsedMetadata = await parseBuffer(buffer);
     const metadata = this.stripFormatAndCheck(parsedMetadata);
 
-    const rms = this.calculateRms(buffer, metadata);
+    const rms = this.calculateRms(buffer, metadata, job.data.aggregationRate);
 
     // E.g. 167 seconds consist of 5015 keyframes and in order to position keyframes relatively to time
     // we have to increment seconds counter by the duration/keyframesNumber
@@ -142,6 +142,8 @@ export class AudioMetadataQueueProcessor {
     const min = Math.min(...RmsValues);
 
     // 100 is a multiplier to move from 0-1 to 0-100
-    return RmsValues.map((value) => ((value - min) / (max - min)) * 100);
+    return RmsValues.map((value) =>
+      Math.floor(((value - min) / (max - min)) * 100)
+    );
   }
 }

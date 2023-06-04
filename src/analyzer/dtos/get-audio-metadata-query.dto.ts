@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsInt,
+  IsNotEmpty,
+  IsNumber,
+  IsNumberString,
+  IsString
+} from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class GetAudioMetadataQueryDto {
   /**
@@ -7,4 +14,11 @@ export class GetAudioMetadataQueryDto {
   @IsString()
   @IsNotEmpty()
   audioFileName: string;
+
+  /**
+   * Basically a video frame rate
+   */
+  @Type(() => Number)
+  @IsInt()
+  aggregationRate: number;
 }

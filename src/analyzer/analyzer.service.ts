@@ -4,6 +4,7 @@ import { BullQueue } from '../bull/bull-queue.enum';
 import { Queue } from 'bull';
 import { AudioMetadataDetectionJobPayload } from './interfaces/audio-metadata-detection-job-payload.interface';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
+import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto';
 
 @Injectable()
 export class AnalyzerService {
@@ -16,9 +17,16 @@ export class AnalyzerService {
   /**
    * Accepts an audio file name from S3 bucket
    * @param audioFileName
+   * @param aggregationRate
    */
-  public async getAudioMetadata(audioFileName: string): Promise<string> {
-    const job = await this.audioMetadataDetection.add({ audioFileName });
+  public async getAudioMetadata(
+    audioFileName: string,
+    aggregationRate: number
+  ): Promise<GetAudioMetadataResponseDto> {
+    const job = await this.audioMetadataDetection.add({
+      audioFileName,
+      aggregationRate
+    });
 
     try {
       return await job.finished();
