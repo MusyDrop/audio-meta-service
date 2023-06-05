@@ -1,14 +1,14 @@
-import { JoiUtil } from '../utils/joi/JoiUtil';
-import { ServerConfig, serverConfigSchema } from './schemas/server-config';
-import { RedisConfig, redisConfigSchema } from './schemas/redis-config';
+// the keys from here in the custom config service
+import { JoiAppConfig } from '../utils/joi/joiTypes.js';
+import { ServerConfig, serverConfigSchema } from './schemas/server-config.js';
+import { RedisConfig, redisConfigSchema } from './schemas/redis-config.js';
 import {
   MicroservicesConfig,
   microservicesConfigSchema
-} from './schemas/microservices-config';
-import { MinioConfig, minioConfigSchema } from './schemas/minio-config';
-import { JoiAppConfig } from '../utils/joi/joiTypes';
+} from './schemas/microservices-config.js';
+import { MinioConfig, minioConfigSchema } from './schemas/minio-config.js';
+import { JoiUtil } from '../utils/joi/JoiUtil.js';
 
-// the keys from here in the custom config service
 export interface AppConfig {
   server: ServerConfig;
   redis: RedisConfig;

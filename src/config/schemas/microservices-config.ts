@@ -1,4 +1,4 @@
-import { JoiConfig } from '../../utils/joi/joiTypes';
+import { JoiConfig } from '../../utils/joi/joiTypes.js';
 
 export interface MicroservicesConfig {}
 

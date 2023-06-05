@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { S3Service } from 'src/s3/s3.service';
+import { S3Service } from '../../src/s3/s3.service.js';
 
 describe('MinioService', () => {
   let service: S3Service;

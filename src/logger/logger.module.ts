@@ -1,8 +1,8 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { LoggerModule as RootLoggerModule } from 'nestjs-pino';
-import { ConfigModule } from '../config/config.module';
-import { ExtendedConfigService } from '../config/extended-config.service';
-import { getLoggerParams } from './get-logger-params';
+import { ConfigModule } from '../config/config.module.js';
+import { ExtendedConfigService } from '../config/extended-config.service.js';
+import { getLoggerParams } from './get-logger-params.js';
 
 // TODO: Move to generic lib
 @Module({})

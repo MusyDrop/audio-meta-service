@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { BullModule as RootBullModule } from '@nestjs/bull';
-import { ExtendedConfigService } from '../config/extended-config.service';
-import { ConfigModule } from '../config/config.module';
-import { BullService } from './bull.service';
-import { BullQueue } from './bull-queue.enum';
+import { ConfigModule } from '../config/config.module.js';
+import { ExtendedConfigService } from '../config/extended-config.service.js';
+import { BullQueue } from './bull-queue.enum.js';
+import { BullService } from './bull.service.js';
 
 @Module({
   imports: [

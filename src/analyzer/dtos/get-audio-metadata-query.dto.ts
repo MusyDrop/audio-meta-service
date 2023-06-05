@@ -1,10 +1,4 @@
-import {
-  IsInt,
-  IsNotEmpty,
-  IsNumber,
-  IsNumberString,
-  IsString
-} from 'class-validator';
+import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class GetAudioMetadataQueryDto {

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService as NestConfig, Path, PathValue } from '@nestjs/config';
-import { AppConfig, appSchema } from './configuration';
+import { AppConfig, appSchema } from './configuration.js';
 
 // Overrides default config service to enable infer true by default
 // and add all() method to retrieve all envs

@@ -1,13 +1,14 @@
 import { Process, Processor } from '@nestjs/bull';
-import { BullQueue } from '../bull/bull-queue.enum';
 import { Job } from 'bull';
-import { AudioMetadataDetectionJobPayload } from './interfaces/audio-metadata-detection-job-payload.interface';
-import { S3Service } from '../s3/s3.service';
-import { ExtendedConfigService } from '../config/extended-config.service';
+import { BullQueue } from '../bull/bull-queue.enum.js';
+import { S3Service } from '../s3/s3.service.js';
+import { ExtendedConfigService } from '../config/extended-config.service.js';
+import { AudioMetadataDetectionJobPayload } from './interfaces/audio-metadata-detection-job-payload.interface.js';
+import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto.js';
+import { streamToBuffer } from '../utils/other-utils.js';
 import { IAudioMetadata, parseBuffer } from 'music-metadata';
-import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto';
-import { streamToBuffer } from '../utils/other-utils';
-import { AudioMetadataDto } from './dtos/audio-metadata.dto';
+import { AudioMetadataDto } from './dtos/audio-metadata.dto.js';
+import { compress } from '../utils/compression.js';
 
 @Processor(BullQueue.AUDIO_METADATA_DETECTION)
 export class AudioMetadataQueueProcessor {
@@ -39,17 +40,18 @@ export class AudioMetadataQueueProcessor {
     const secondsIncrement = metadata.durationSecs / rms.length;
     const offset = secondsIncrement * 0.01; // slight offset shift
     // Seconds fractions or times at which we set the keyframes (rms values)
-    let timeCounter = 0;
-    const timestamps = rms.map(() => {
-      const time = timeCounter;
-      timeCounter += secondsIncrement - offset;
-      return time;
-    });
+    const timeCounter = 0;
+    // const timestamps = rms.map(() => {
+    //   const time = timeCounter;
+    //   timeCounter += secondsIncrement - offset;
+    //   return time;
+    // });
+
+    const compressedRms = await compress(rms);
 
     return {
       ...metadata,
-      rms,
-      timestamps
+      compressedRms
     };
   }
 

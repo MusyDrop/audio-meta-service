@@ -1,6 +1,5 @@
-import { JoiConfig } from '../../utils/joi/joiTypes';
 import Joi from 'joi';
-import * as process from 'process';
+import { JoiConfig } from '../../utils/joi/joiTypes.js';
 
 export interface MinioConfig {
   host: string;

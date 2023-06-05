@@ -1,7 +1,6 @@
-import { AudioMetadataDto } from './audio-metadata.dto';
+import { AudioMetadataDto } from './audio-metadata.dto.js';
 
 export class GetAudioMetadataResponseDto extends AudioMetadataDto {
-  rms: number[];
-  // timestamps relative to each rms value
-  timestamps: number[];
+  // compressed RMS values to minimise network overload
+  compressedRms: number[];
 }

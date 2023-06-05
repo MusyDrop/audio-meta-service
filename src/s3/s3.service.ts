@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException, OnModuleInit } from '@nestjs/common';
-import { ExtendedConfigService } from '../config/extended-config.service';
 import { Client } from 'minio';
-import { generateUniqueId } from '../utils/unique-id-generator';
 import { Readable } from 'node:stream';
+import { ExtendedConfigService } from '../config/extended-config.service.js';
+import { generateUniqueId } from '../utils/unique-id-generator.js';
 
 @Injectable()
 export class S3Service implements OnModuleInit {

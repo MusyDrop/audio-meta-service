@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as RootConfigModule } from '@nestjs/config';
-import { configuration } from './configuration';
-import { ExtendedConfigService } from './extended-config.service';
+import { configuration } from './configuration.js';
+import { ExtendedConfigService } from './extended-config.service.js';
 
 @Module({
   imports: [

@@ -1,10 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
-import { BullQueue } from '../bull/bull-queue.enum';
 import { Queue } from 'bull';
-import { AudioMetadataDetectionJobPayload } from './interfaces/audio-metadata-detection-job-payload.interface';
+import { BullQueue } from '../bull/bull-queue.enum.js';
+import { AudioMetadataDetectionJobPayload } from './interfaces/audio-metadata-detection-job-payload.interface.js';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
-import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto';
+import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto.js';
 
 @Injectable()
 export class AnalyzerService {

@@ -1,7 +1,7 @@
 import Joi from 'joi';
-import { NodeEnv } from '../node-env.enum';
-import { LogLevel } from '../../logger/log-level.enum';
-import { JoiConfig } from '../../utils/joi/joiTypes';
+import { JoiConfig } from '../../utils/joi/joiTypes.js';
+import { LogLevel } from '../../logger/log-level.enum.js';
+import { NodeEnv } from '../node-env.enum.js';
 
 export interface ServerConfig {
   port: number;

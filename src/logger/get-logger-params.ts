@@ -1,12 +1,12 @@
 import { Params } from 'nestjs-pino';
 import chalk, { ChalkFunction } from 'chalk';
 import { startTime } from 'pino-http';
-import pretty from 'pino-pretty';
+import { default as pretty } from 'pino-pretty';
 import { IncomingMessage } from 'http';
 import dateFormat from 'dateformat';
 import { levels } from 'pino';
-import { generateUniqueId } from '../utils/unique-id-generator';
-import { LogLevel } from './log-level.enum';
+import { LogLevel } from './log-level.enum.js';
+import { generateUniqueId } from '../utils/unique-id-generator.js';
 
 // TODO: Move out this logger to a separate lib
 const LOG_LEVEL_COLOR_MAP: Record<LogLevel, ChalkFunction> = {

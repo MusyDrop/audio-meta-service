@@ -1,6 +1,6 @@
 import Joi, { SchemaMap } from 'joi';
-import { AnyObject } from '../types';
-import { JoiConfig, JoiConfigProps } from './joiTypes';
+import { AnyObject } from '../types.js';
+import { JoiConfig, JoiConfigProps } from './joiTypes.js';
 
 // TODO: Move to generic library
 // TODO: Make logger injectable from a third party

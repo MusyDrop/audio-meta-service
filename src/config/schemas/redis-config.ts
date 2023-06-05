@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { JoiConfig } from '../../utils/joi/joiTypes';
+import { JoiConfig } from '../../utils/joi/joiTypes.js';
 
 export interface RedisConfig {
   host: string;

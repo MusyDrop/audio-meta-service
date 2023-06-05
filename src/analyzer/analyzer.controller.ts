@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { AnalyzerService } from './analyzer.service';
-import { GetAudioMetadataQueryDto } from './dtos/get-audio-metadata-query.dto';
-import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto';
+import { AnalyzerService } from './analyzer.service.js';
+import { GetAudioMetadataQueryDto } from './dtos/get-audio-metadata-query.dto.js';
+import { GetAudioMetadataResponseDto } from './dtos/get-audio-metadata-response.dto.js';
 
 @Controller('analyzer')
 export class AnalyzerController {
