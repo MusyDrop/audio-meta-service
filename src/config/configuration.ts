@@ -8,19 +8,22 @@ import {
 } from './schemas/microservices-config.js';
 import { MinioConfig, minioConfigSchema } from './schemas/minio-config.js';
 import { JoiUtil } from '../utils/joi/JoiUtil.js';
+import { SentryConfig, sentryConfigSchema } from './schemas/sentry-config.js';
 
 export interface AppConfig {
   server: ServerConfig;
   redis: RedisConfig;
   microservices: MicroservicesConfig;
   minio: MinioConfig;
+  sentry: SentryConfig;
 }
 
 export const appSchema = (): JoiAppConfig<AppConfig> => ({
   server: serverConfigSchema(),
   redis: redisConfigSchema(),
   microservices: microservicesConfigSchema(),
-  minio: minioConfigSchema()
+  minio: minioConfigSchema(),
+  sentry: sentryConfigSchema()
 });
 
 export const configuration = (): AppConfig => {

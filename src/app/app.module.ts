@@ -6,6 +6,7 @@ import { AnalyzerModule } from '../analyzer/analyzer.module.js';
 import { S3Module } from '../s3/s3.module.js';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { SentryModule } from '../sentry/sentry.module.js';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { AppService } from './app.service.js';
     LoggerModule.forRoot(),
     BullModule,
     AnalyzerModule,
-    S3Module
+    S3Module,
+    SentryModule
   ],
   controllers: [AppController],
   providers: [AppService]
